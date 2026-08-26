@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.demo.controller.model.Student;
+import com.example.demo.model.Student;
 
 @Controller
 public class StudentController {
@@ -22,4 +22,6 @@ public class StudentController {
 		model.addAttribute("student", student);
 		return"sucess";
 	}
+	
+	
 }
