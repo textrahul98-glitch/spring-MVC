@@ -14,13 +14,14 @@
 		<font color="red">
 		<p th:text="${fmsg}"></font>
 		
-		<form action="/product" method="post">
-
+		<form th:action="@{p.pid !=null ? '/update':'/product'}" method="post">
+          <input type="hidden" name="pid" th:value="${p.pid}">
 			Product Name: <input type="text" name="name" required> <br>
 			<br> Product Price: <input type="number" name="price" required>
 			<br> <br> Product Qty : <input type="number" name="qty">
 			<br> <br>
-			<button type="submit" class="btn btn-primary">Save</button>
+			<button type="submit" class="btn btn-primary"
+			th:text="@{p.pid !=null ? 'update':'save'}">Save</button>
 
 		</form>
 		<a href="/Allproduct">View all product</a>

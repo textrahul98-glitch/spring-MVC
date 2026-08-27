@@ -27,4 +27,30 @@ public class ProductServiceImpl implements ProductService {
 		return productRepo.findAll();
 	}
 
+	@Override
+	public boolean deleteProduct(Integer pid) {
+		if(productRepo.existsById(pid)) {
+			productRepo.deleteById(pid);
+			return true;
+		}
+		
+		return false;
+	}
+
+	@Override
+	public boolean updateProduct(Product product) {
+		if(productRepo.existsById(product.getPid())) {
+			productRepo.save(product);
+			return true;
+		}
+		
+		return false;
+	}
+
+	@Override
+	public Product getProductById(Integer id) {
+		
+		return productRepo.findById(id).orElse(null);
+	}
+
 }

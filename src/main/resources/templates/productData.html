@@ -9,6 +9,9 @@
 <body>
 	<div class="container mt-5">
 	<h2> View All Product Here</h2>
+			<font color="yellow">
+		<p th:text="${smsg}"></font>
+		<br><br>
 	<a href="/">Add product</a>
 	<table class="table table-bordered table-striped">
 	     <tr>
@@ -27,8 +30,8 @@
 	       <td th:text="${p.price}"></td>
 	        <td th:text="${p.qty}"></td>
 	     <td>
-	     <a href="#" class="btn btn-primary">Edit</a>
-	     <a href="#" class="btn btn-danger">Delete</a>
+	     <a th:href="@{/edit/{id}(id=${p.pid})}" class="btn btn-primary">Edit</a>
+	     <a th:href="@{/delete/{id}(id=${p.pid})}" class="btn btn-danger">Delete</a>
 	     </td>
 	     </tr>
 	
