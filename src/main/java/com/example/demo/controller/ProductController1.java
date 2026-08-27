@@ -22,7 +22,7 @@ public class ProductController1 {
 	@GetMapping("/") //// http://localhost:8080/
 	public ModelAndView showForm() {
 		ModelAndView mv = new ModelAndView();
-
+		mv.addObject("p", new Product());
 		mv.setViewName("productIndex");
 		return mv;
 	}
@@ -45,7 +45,6 @@ public class ProductController1 {
 		ModelAndView mv = new ModelAndView();
 		List<Product> productList = productService.getAllProduct();
 		mv.addObject("plist", productList);
-		System.out.println(productList);
 		mv.setViewName("productData");
 		return mv;
 	}
